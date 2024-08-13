@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -17,15 +16,21 @@ public class Scheduler {
     private String name;
     private String pw;
     private LocalDate date;
-    private LocalDate editdate;
+    private LocalDate editDate;
 
     public Scheduler(SchedulerRequestDto requestDto) {
         this.schedule = requestDto.getSchedule();
         this.name = requestDto.getName();
+        this.pw = requestDto.getPw();
+        this.date = requestDto.getDate();
+        this.editDate = requestDto.getEditDate();
     }
 
     public void update(SchedulerRequestDto requestDto) {
         this.schedule = requestDto.getSchedule();
         this.name = requestDto.getName();
+        this.pw = requestDto.getPw();
+        this.date = requestDto.getDate();
+        this.editDate = requestDto.getEditDate();
     }
 }

@@ -1,22 +1,36 @@
 package com.project.dto;
+import com.project.entity.Scheduler;
 import lombok.Getter;
+import lombok.Setter;
+
+import java.time.LocalDate;
 
 @Getter
+@Setter
 public class ScheduleResponseDto {
     private Long id;
-    private String Schedule;
+    private String schedule;
     private String name;
     private String pw;
-    private String date;
+    private LocalDate date;
+    private LocalDate editDate;
 
-    public ScheduleResponseDto() {
+
+    public ScheduleResponseDto(Scheduler scheduler) {
+        this.id = scheduler.getId();
+        this.schedule = scheduler.getSchedule();
+        this.name = scheduler.getName();
+        this.pw = scheduler.getPw();
+        this.date = scheduler.getDate();
+        this.editDate = scheduler.getEditDate();
+    }
+
+    public ScheduleResponseDto(Long id, String name, String schedule, LocalDate date, String pw, LocalDate editDate) {
         this.id = id;
-        this.Schedule = Schedule;
+        this.schedule = schedule;
         this.name = name;
         this.pw = pw;
         this.date = date;
-    }
-
-    public ScheduleResponseDto(Long id, String name, String schedule, String date, String pw) {
+        this.editDate = editDate;
     }
 }
